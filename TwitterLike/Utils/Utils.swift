@@ -37,5 +37,16 @@ class Utilities {
         return textField
     }
     
+    func attributedButton(with firstPart: String, and secondPart: String) -> UIButton {
+        let button = UIButton(type: .system)
+        
+        let attributeTitle = NSMutableAttributedString(string: firstPart, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
+        attributeTitle.append( NSAttributedString(string: secondPart, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]))
+        
+        button.setAttributedTitle(attributeTitle, for: .normal)
+        
+        return button
+        
+    }
     
 }
