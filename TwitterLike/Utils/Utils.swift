@@ -49,4 +49,17 @@ class Utilities {
         
     }
     
+    func primaryButton(with name: String) -> UIButton {
+        let button = UIButton(type: .system)
+       
+        button.setTitle(name, for: .normal)
+        button.setTitleColor(.twitterBlue, for: .normal)
+        button.backgroundColor = .white
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return button
+    }
+    
 }

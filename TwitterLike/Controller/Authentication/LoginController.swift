@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginController: UIViewController {
-
+    
     // MARK: - Properties
     
     private let logoImageView: UIImageView = {
@@ -24,7 +24,7 @@ class LoginController: UIViewController {
         let image =  UIImage(named: "ic_mail_outline_white_2x-1")
         let view = Utilities().inputContainerView(withImage: image, textField: emailTextField)
         view.backgroundColor = .twitterBlue
-       
+        
         return view
     }()
     
@@ -52,13 +52,7 @@ class LoginController: UIViewController {
     }()
     
     private lazy var loginButton: UIButton = {
-        let loginButton = UIButton(type: .system)
-        loginButton.setTitle("Log In", for: .normal)
-        loginButton.setTitleColor(.twitterBlue, for: .normal)
-        loginButton.backgroundColor = .white
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        loginButton.layer.cornerRadius = 5
-        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        let loginButton = Utilities().primaryButton(with: "Log In")
         loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         
         return loginButton
@@ -69,7 +63,6 @@ class LoginController: UIViewController {
         button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         
         return button
-        
     }()
     
     
@@ -86,13 +79,13 @@ class LoginController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleLogin() {
-        print("LogIn")
-        
+        let controller = MainTabController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func handleSignUp() {
-        print("SignUp")
-        
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Helpers
@@ -117,5 +110,4 @@ class LoginController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingRight: 15)
     }
-
 }

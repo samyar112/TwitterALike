@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTabController: UITabBarController {
-
+    
     // MARK: - Properties
     
     private lazy var actionButton: UIButton = {
@@ -25,7 +25,7 @@ class MainTabController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureViewControllers()
         configureUI()
     }
@@ -35,7 +35,7 @@ class MainTabController: UITabBarController {
     @objc func actionButtonTapped() {
         print(123)
     }
-
+    
     // MARK: - Helpers
     
     
@@ -44,7 +44,6 @@ class MainTabController: UITabBarController {
         actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
         actionButton.layer.cornerRadius = 56 / 2
     }
-    
     
     func configureViewControllers() {
         
@@ -56,11 +55,10 @@ class MainTabController: UITabBarController {
         
         let notifications = NotificationsController()
         let navigationThree = templateNavigationController(image: UIImage(named: "like_unselected"), rootViewController: notifications)
-       
+        
         
         let conversations = ConversationsController()
         let navigationFour = templateNavigationController(image: UIImage(named: "ic_mail_outline_white_2x-1"), rootViewController: conversations)
-        
         
         viewControllers = [navigationOne,
                            navigationTwo,
@@ -74,17 +72,17 @@ class MainTabController: UITabBarController {
     }
     
     func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
-
+        
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.tabBarItem.image = image
-       
+        
         // custom navigation bar color
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
         navigation.navigationBar.standardAppearance = appearance
         navigation.navigationBar.scrollEdgeAppearance = navigation.navigationBar.standardAppearance
-    
+        
         return navigation
     }
 }
