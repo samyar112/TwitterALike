@@ -18,10 +18,13 @@
 		A232AC9B29942ABA005526E4 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A232AC9A29942ABA005526E4 /* NotificationsController.swift */; };
 		A232AC9D29942AD0005526E4 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A232AC9C29942AD0005526E4 /* ConversationsController.swift */; };
 		A232AC9F29944BC4005526E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A232AC9E29944BC4005526E4 /* Extensions.swift */; };
+		A232ACA2299457BC005526E4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A232ACA1299457BC005526E4 /* LoginController.swift */; };
+		A232ACA429945B5F005526E4 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A232ACA329945B5F005526E4 /* RegistrationController.swift */; };
+		A2F223B829956B4500C725AA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F223B729956B4500C725AA /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A232AC7729942795005526E4 /* TwitterLike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterLike.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A232AC7729942795005526E4 /* TwitterALike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterALike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A232AC7A29942795005526E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A232AC7C29942795005526E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A232AC8129942795005526E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		A232AC9A29942ABA005526E4 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		A232AC9C29942AD0005526E4 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		A232AC9E29944BC4005526E4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A232ACA1299457BC005526E4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		A232ACA329945B5F005526E4 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		A2F223B729956B4500C725AA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,7 @@
 		A232AC7829942795005526E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A232AC7729942795005526E4 /* TwitterLike.app */,
+				A232AC7729942795005526E4 /* TwitterALike.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				A232AC9E29944BC4005526E4 /* Extensions.swift */,
+				A2F223B729956B4500C725AA /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 		A232AC90299427CF005526E4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A232ACA0299457A0005526E4 /* Authentication */,
 				A232AC94299428B8005526E4 /* MainTabController.swift */,
 				A232AC9629942A02005526E4 /* FeedController.swift */,
 				A232AC9829942A9B005526E4 /* ExplorerController.swift */,
@@ -130,12 +138,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A232ACA0299457A0005526E4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A232ACA1299457BC005526E4 /* LoginController.swift */,
+				A232ACA329945B5F005526E4 /* RegistrationController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A232AC7629942795005526E4 /* TwitterLike */ = {
+		A232AC7629942795005526E4 /* TwitterALike */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A232AC8B29942796005526E4 /* Build configuration list for PBXNativeTarget "TwitterLike" */;
+			buildConfigurationList = A232AC8B29942796005526E4 /* Build configuration list for PBXNativeTarget "TwitterALike" */;
 			buildPhases = (
 				A232AC7329942795005526E4 /* Sources */,
 				A232AC7429942795005526E4 /* Frameworks */,
@@ -145,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = TwitterLike;
+			name = TwitterALike;
 			productName = TwitterLike;
-			productReference = A232AC7729942795005526E4 /* TwitterLike.app */;
+			productReference = A232AC7729942795005526E4 /* TwitterALike.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +195,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A232AC7629942795005526E4 /* TwitterLike */,
+				A232AC7629942795005526E4 /* TwitterALike */,
 			);
 		};
 /* End PBXProject section */
@@ -205,9 +222,12 @@
 				A232AC9D29942AD0005526E4 /* ConversationsController.swift in Sources */,
 				A232AC7B29942795005526E4 /* AppDelegate.swift in Sources */,
 				A232AC9F29944BC4005526E4 /* Extensions.swift in Sources */,
+				A232ACA2299457BC005526E4 /* LoginController.swift in Sources */,
 				A232AC7D29942795005526E4 /* SceneDelegate.swift in Sources */,
 				A232AC9929942A9B005526E4 /* ExplorerController.swift in Sources */,
+				A2F223B829956B4500C725AA /* Utils.swift in Sources */,
 				A232AC95299428B8005526E4 /* MainTabController.swift in Sources */,
+				A232ACA429945B5F005526E4 /* RegistrationController.swift in Sources */,
 				A232AC9729942A02005526E4 /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +378,7 @@
 				DEVELOPMENT_TEAM = 99JS49DL2P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TwitterLike/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TwitterAlike;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -387,6 +408,7 @@
 				DEVELOPMENT_TEAM = 99JS49DL2P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TwitterLike/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TwitterAlike;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -418,7 +440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A232AC8B29942796005526E4 /* Build configuration list for PBXNativeTarget "TwitterLike" */ = {
+		A232AC8B29942796005526E4 /* Build configuration list for PBXNativeTarget "TwitterALike" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A232AC8C29942796005526E4 /* Debug */,
