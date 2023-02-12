@@ -12,6 +12,15 @@ class MainTabController: UITabBarController {
     
     // MARK: - Properties
     
+    var user: User? {
+        didSet {
+            guard let navigation = viewControllers?[0] as? UINavigationController else { return }
+            guard let feedController = navigation.viewControllers.first as? FeedController else { return }
+            
+            feedController.user = user
+        }
+    }
+    
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
@@ -27,10 +36,10 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // logUserOut()
+        // logUserOut()
         view.backgroundColor = .twitterBlue
         authenticateUserAndConfigureUI()
-        
+        fetchUser()
     }
     
     // MARK: - API
@@ -45,6 +54,12 @@ class MainTabController: UITabBarController {
         } else {
             configureViewControllers()
             configureUI()
+        }
+    }
+    
+    func fetchUser() {
+        UserService.shared.fetchUser { user in
+            self.user = user
         }
     }
     
@@ -65,7 +80,6 @@ class MainTabController: UITabBarController {
     }
     
     // MARK: - Helpers
-    
     
     func configureUI() {
         view.addSubview(actionButton)
