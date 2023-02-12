@@ -46,7 +46,7 @@ class LoginController: UIViewController {
     private let passwordTextField: UITextField = {
         let placeholderText = "Password"
         let textField = Utilities().textField(withPlaceholder: placeholderText)
-        textField.isSecureTextEntry = true 
+        textField.isSecureTextEntry = true
         
         return textField
     }()
@@ -79,8 +79,23 @@ class LoginController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleLogin() {
-        let controller = MainTabController()
-        navigationController?.pushViewController(controller, animated: true)
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.shared.userLogin(withEmail: email, password: password) { [ weak self ] (result, error) in
+            
+            if let error = error {
+                print("DEBUG: Error logging in \(error.localizedDescription)")
+                return
+            }
+
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            
+            tab.authenticateUserAndConfigureUI()
+            
+            self?.dismiss(animated: true)
+        }
     }
     
     @objc func handleSignUp() {

@@ -131,22 +131,19 @@ class RegistrationController: UIViewController {
                                           username: username,
                                           profileImage: profileImage)
         
-        AuthService.shared.registerUser(credentials: credentials) { (error, reference) in
-            print("DEBUG: Sign up successful")
-            print("DEBUG: Handle update user interface here")
+        AuthService.shared.registerUser(credentials: credentials) { [ weak self ] (error, reference) in
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
             
+            tab.authenticateUserAndConfigureUI()
             
+            self?.dismiss(animated: true)
         }
-        
-        
-        
     }
     
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
-    
-    
     
     // MARK: - Helpers
     
