@@ -71,12 +71,14 @@ class MainTabController: UITabBarController {
         }
     }
     
-    
-    
     // MARK: - Selectors
     
     @objc func actionButtonTapped() {
-        print(123)
+        guard let user = user else { return }
+        let controller = UploadTweetController(user: user)
+        let navigation = templateNavigationController(rootViewController: controller)
+        navigation.modalPresentationStyle = .fullScreen
+        present(navigation, animated: true)
     }
     
     // MARK: - Helpers
@@ -113,7 +115,7 @@ class MainTabController: UITabBarController {
         }
     }
     
-    func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
+    func templateNavigationController(image: UIImage? = nil, rootViewController: UIViewController) -> UINavigationController {
         
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.tabBarItem.image = image
